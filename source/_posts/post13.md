@@ -12,10 +12,9 @@ categories: 转载
 
 GitHub Pages Blog 原文：Custom domains on GitHub Pages gain support for HTTPS在 2018-05-01，GitHub Pages 官方发布了上面的一篇 Blog，告知我们 GitHub Pages 对自定义域名支持 了 HTTPS ，下面针对此新特性来做个简单的说明并提供详细的开启操作流程。0x00 好处简单来说，除了 HTTPS 自身带来的加密、防劫持等特性外，Github 官方基于 HTTPS 配合 CND，使得网站的加载速度更快，还能提供额外的防御 DDoS 攻击的保护。0x01 操作流程关于如何在 Github Pages 上搭建一个博客，这里不再赘述，网上的教程比较多，此次仅对开启自定义域名支持 HTTPS 这一特性来进行说明。本文以项目 https://github.com/likfe/likfe.github.io 和域名 likfe.com 为例。操作流程：
 > 	1. 域名解析
->
 	2. GitHub Pages 项目设置
->		1. 添加 CNAME 文件
->		2. 配置自定义域名
+		1. 添加 CNAME 文件
+		2. 配置自定义域名
 
 #### 域名解析
 开启 Github Pages 之后，会有一个默认的二级域名作为访问地址，一般是和项目同名，比如我的这个项目的默认二级域名访问地址是 http://likfe.github.io 。知道这个之后，我们对域名进行解析操作：
