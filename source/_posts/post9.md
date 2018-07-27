@@ -3,6 +3,7 @@ title: hexo部署到GitHub懵逼版
 date: 2018-04-26 13:28:56
 tags: hexo
 categories: 原创
+copyright: true
 
 ---
 

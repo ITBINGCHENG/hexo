@@ -3,6 +3,7 @@ title: linux系统学习
 date: 2018-03-29 10:20:56
 tags: linux
 categories:	原创
+copyright: true
 
 ---
 ##### 系统目录

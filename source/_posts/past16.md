@@ -1,10 +1,9 @@
 ---
 
-title: 0
-date: 2-7-13 21:31:48
-tags: vae
+title: 油猴Tampermonkey-让百度云下载飞起来
+tags: 油猴
 categories: 转载
-copyright: true
+copyright: false
 
 ---
 <!-- ![](http://qn.orange94.cn/) -->
