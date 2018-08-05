@@ -1,6 +1,6 @@
 ---
 
-title: 信息差与金钱
+title: 信息差
 date: 2018-7-26 12:48:25
 tags: 财经
 categories: 转载
