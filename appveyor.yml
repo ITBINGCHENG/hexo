@@ -3,10 +3,10 @@ environment:
 access_token:
     secure: 0d+EA2MJ4f4IdOVNKBulqZWf71Y1w61j6ihP6naB+pGYZjApWjC3yDHIeNDdicHV
 install:
-	- node --version
-	- npm --version
-	- npm install
-	- npm install hexo-cli -g
+        - node --version
+        - npm --version
+        - npm install
+        - npm install hexo-cli -g
 build_script:
 	- hexo generate
 artifacts:
@@ -23,6 +23,3 @@ on_success:
 	- SETLOCAL EnableDelayedExpansion & robocopy "%APPVEYOR_BUILD_FOLDER%\public" "%TEMP%\static-site" /e & IF !ERRORLEVEL! EQU 1 (exit 0) ELSE (IF !ERRORLEVEL! EQU 3 (exit 0) ELSE (exit 1))
 	- git add -A
 	- if "%APPVEYOR_REPO_BRANCH%"=="master" if not defined APPVEYOR_PULL_REQUEST_NUMBER (git diff --quiet --exit-code --cached || git commit -m "Update Static Site" && git push origin %TARGET_BRANCH% && appveyor AddMessage "Static Site Updated")
-————————————————
-版权声明：本文为CSDN博主「Mculover666」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Mculover666/java/article/details/94837390
