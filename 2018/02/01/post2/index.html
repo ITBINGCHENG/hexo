@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="离线下载,Aria2," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在vps上面安装Aria2实现离线下载。 本教程共三个部分 一、安装aria21、安装aria2的方法很简单，一条命令就够了 centos 7：  yum install epel-release  yum install aria2  ubuntu： apt-get install aria2  如果出现【Unable to locate package aria2】或者【No package">
+<meta name="keywords" content="离线下载,Aria2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPS安装Aria2+WEBUI搭建离线下载神器">
+<meta property="og:url" content="http://yoursite.com/2018/02/01/post2/index.html">
+<meta property="og:site_name" content="ORANGE">
+<meta property="og:description" content="在vps上面安装Aria2实现离线下载。 本教程共三个部分 一、安装aria21、安装aria2的方法很简单，一条命令就够了 centos 7：  yum install epel-release  yum install aria2  ubuntu： apt-get install aria2  如果出现【Unable to locate package aria2】或者【No package">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ohl8u210m.bkt.clouddn.com/2-1.jpg">
+<meta property="og:updated_time" content="2020-07-02T13:13:45.311Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VPS安装Aria2+WEBUI搭建离线下载神器">
+<meta name="twitter:description" content="在vps上面安装Aria2实现离线下载。 本教程共三个部分 一、安装aria21、安装aria2的方法很简单，一条命令就够了 centos 7：  yum install epel-release  yum install aria2  ubuntu： apt-get install aria2  如果出现【Unable to locate package aria2】或者【No package">
+<meta name="twitter:image" content="http://ohl8u210m.bkt.clouddn.com/2-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/01/post2/"/>
+
+
+
+
+
+  <title>VPS安装Aria2+WEBUI搭建离线下载神器 | ORANGE</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b18c03f61519790566aeef660c00405f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ORANGE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/01/post2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BINGCHENG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ORANGE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VPS安装Aria2+WEBUI搭建离线下载神器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T23:11:38+00:00">
+                2018-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/转载/" itemprop="url" rel="index">
+                    <span itemprop="name">转载</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/01/post2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/01/post2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span style="font-size:16px;line-height:2;">在vps上面安装Aria2实现离线下载。</span><br></p>
+<p><span style="font-size:16px;line-height:2;">本教程共三个部分</span><br></p>
+<h4 id="一、安装aria2"><a href="#一、安装aria2" class="headerlink" title="一、安装aria2"></a><span style="font-size:16px;line-height:2;"><strong>一、安装aria2</strong></span><br></h4><p><span style="font-size:16px;line-height:2;">1、安装aria2的方法很简单，一条命令就够了</span><br></p>
+<p><span style="font-size:16px;line-height:2;">centos 7：</span> <br></p>
+<p><span style="font-size:16px;line-height:2;"><span style="color:#337FE5;">yum install epel-release</span><span style="color:#337FE5;"></span><br></span></p>
+<p> <span style="font-size:16px;line-height:2;color:#337FE5;">yum install aria2</span><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;">ubuntu：</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">apt-get install aria2</span><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;">如果出现【Unable to locate package aria2】或者【No package aria2 available.】的错误，表示你需要更新一下。</span><br></p>
+<p><span style="font-size:16px;line-height:2;">centos：<span style="color:#337FE5;">yum update</span></span><br></p>
+<p><span style="font-size:16px;line-height:2;">ubuntu：<span style="color:#337FE5;">apt-get update</span></span><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;">系统版本不同源自带的aria2版本也会不同，centos6的话是aria2 16.0X的版本，centos7能到18.x，至于ubuntu，一向包更新的比较快，应该都是最新（苏苏未测试）。如果你对版本不满意，也可以自己下载源码后编译，这个不做讨论。</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><span style="font-size:16px;line-height:2;">2、下载安装好了以后，远程下载文件就很简单了</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">单个文件下载</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c <a href="http://example.org/mylinux.iso" target="_blank" rel="noopener">http://example.org/mylinux.iso</a></span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">&nbsp;</span><span style="font-size:16px;line-height:2;color:#CC33E5;">从两个来源（更多也可以）</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c <a href="http://a/f.iso" target="_blank" rel="noopener">http://a/f.iso</a> ftp://b/f.iso</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">&nbsp;</span><span style="font-size:16px;line-height:2;color:#CC33E5;">BitTorrent</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c <a href="http://example.org/mylinux.torrent" target="_blank" rel="noopener">http://example.org/mylinux.torrent</a></span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">&nbsp;</span><span style="font-size:16px;line-height:2;color:#CC33E5;">BitTorrent Magnet URI</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c ‘magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C’</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">&nbsp;</span><span style="font-size:16px;line-height:2;color:#CC33E5;">Metalink</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c <a href="http://example.org/mylinux.metalink" target="_blank" rel="noopener">http://example.org/mylinux.metalink</a></span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">&nbsp;</span><span style="font-size:16px;line-height:2;color:#CC33E5;">文本文件uri.text中的链接(URI)</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c -i uri.txt</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">&nbsp;</span><span style="font-size:16px;line-height:2;color:#CC33E5;">显示种子中包含了哪些文件</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#CC33E5;">aria2c -S bit.torrent</span><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;"><a target="_blank" href="http://ohl8u210m.bkt.clouddn.com/2-1.jpg" id="ematt:1435"><img src="http://ohl8u210m.bkt.clouddn.com/2-1.jpg" title="点击查看原图" alt="a1.jpg" border="0" width="479" height="173"></a></span><br></p>
+<p><br></p>
+<p><br></p>
+<h4 id="二、配置aria2"><a href="#二、配置aria2" class="headerlink" title="二、配置aria2"></a><span style="font-size:16px;line-height:2;"><strong>二、配置aria2</strong></span><br></h4><p><span style="font-size:16px;line-height:2;">1、开启RPC远程管理命令</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">aria2c –enable-rpc –rpc-listen-all=true –rpc-allow-origin-all -c -D</span><br></p>
+<p><span style="font-size:16px;line-height:2;">说明: 这个命令在VPS上运行即可开启rpc服务,可以用多种方式进行远程管理,但貌似不会保存配置文件,重启后会丢失之前的下载记录</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><span style="font-size:16px;line-height:2;">2、让配置文件不丢失</span><br></p>
+<p><span style="font-size:16px;line-height:2;">用winscp新建以下文件【/root/aria2.conf】，文件内容如下：</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">## ‘#’开头为注释内容, 选项都有相应的注释说明, 根据需要修改 ##</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">## 被注释的选项填写的是默认值, 建议在需要修改时再取消注释 &nbsp;##</span><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#允许rpc</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">enable-rpc=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#允许所有来源, web界面跨域权限需要</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">rpc-allow-origin-all=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#允许非外部访问</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">rpc-listen-all=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#RPC端口, 仅当默认端口被占用时修改</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#rpc-listen-port=6800</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#用户名</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">rpc-user=susu</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#密码</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">rpc-passwd=138vps</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">###速度相关&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#最大同时下载数(任务数), 路由建议值: 3</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">max-concurrent-downloads=5</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#断点续传</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">continue=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#同服务器连接数</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">max-connection-per-server=5</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">min-split-size=20M</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#单文件最大线程数, 路由建议值: 5</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">split=10</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#下载速度限制 0 不限制</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">max-overall-download-limit=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#单文件速度限制</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">max-download-limit=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#上传速度限制</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">max-overall-upload-limit=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#单文件速度限制</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">max-upload-limit=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#断开速度过慢的连接</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#lowest-speed-limit=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#验证用，需要1.16.1之后的release版本</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#referer=*</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">###进度保存相关&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">input-file=/root/aria2.session</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">save-session=/root/aria2.session</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#定时保存会话，需要1.16.1之后的release版</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#save-session-interval=60</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">###磁盘相关&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#文件保存路径, 默认为当前启动位置</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">dir=/var/www/html/</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#文件缓存, 使用内置的文件缓存, 如果你不相信Linux内核文件缓存和磁盘内置缓存时使用, 需要1.16及以上版本</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#disk-cache=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#另一种Linux文件缓存方式, 使用前确保您使用的内核支持此选项, 需要1.15及以上版本</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#enable-mmap=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#所需时间 none &lt; falloc ? trunc &lt;&lt; prealloc, falloc和trunc需要文件系统和内核支持</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">file-allocation=prealloc</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">###BT相关&nbsp;</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#启用本地节点查找</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">bt-enable-lpd=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#添加额外的tracker</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#bt-tracker=&lt;URI&gt;,…</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#单种子最大连接数</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#bt-max-peers=55</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#强制加密, 防迅雷必备</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#bt-require-crypto=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#当下载的文件是一个种子(以.torrent结尾)时, 自动下载BT</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">follow-torrent=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#BT监听端口, 当端口屏蔽时使用</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#listen-port=6881-6999</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#aria2亦可以用于PT下载, 下载的关键在于伪装</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#不确定是否需要，为保险起见，need more test</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">enable-dht=false</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">bt-enable-lpd=false</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">enable-peer-exchange=false</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#修改特征</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">user-agent=uTorrent/2210(25130)</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">peer-id-prefix=-UT2210-</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#修改做种设置, 允许做种</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">seed-ratio=0</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#保存会话</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">force-save=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">bt-hash-check-seed=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">bt-seed-unverified=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">bt-save-metadata=true</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#定时保存会话，需要1.16.1之后的某个release版本</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#9933E5;">#save-session-interval=60</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><span style="font-size:16px;line-height:2;">3、然后运行该命令</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">aria2c –conf-path=/root/aria2.conf -D</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;">4、开机自动启动，</span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;">centos</span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;">到【/etc/rc.d/rc.local】文件下面加入下面这一行</span><br><br></p>
+
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">aria2c –conf-path=/root/aria2.conf -D &amp;</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:32px;white-space:normal;">ubuntu</span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:32px;white-space:normal;">到【/etc/rc.local</span><span style="font-size:16px;line-height:32px;white-space:normal;"></span><span style="font-size:16px;line-height:32px;white-space:normal;">】文件内</span><span style="font-size:16px;">，在【exit 0】前面加入下面一行</span><br><br></p>
+
+<p><br><br>    <span style="color:#337FE5;font-size:16px;line-height:32px;white-space:normal;">aria2c –conf-path=/root/aria2.conf -D &amp;</span><span style="font-size:16px;"></span><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+
+
+<h4 id="三、安装WEBUI"><a href="#三、安装WEBUI" class="headerlink" title="三、安装WEBUI"></a><span style="font-size:16px;line-height:2;"><strong>三、安装WEBUI</strong></span><br></h4><p><span style="font-size:16px;line-height:2;">1、首先要安装http服务，注意，如果有iptables，要先开放80端口，具体教程请本博客搜索 iptables</span><br></p>
+<p><span style="font-size:16px;line-height:2;">centos：</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">yum &nbsp;-y &nbsp;install &nbsp;httpd</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">chkconfig –levels 235 httpd on</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">service httpd start</span><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;">ubuntu：</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">apt-get -y install apache2</span><br></p>
+<p><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><span style="font-size:16px;line-height:2;">2、到<a href="https://github.com/ziahamza/webui-aria2" target="_blank" rel="noopener">https://github.com/ziahamza/webui-aria2</a> 下载最新的WebUI压缩包。或者：<a href="https://pan.lanzou.com/1131145，再或者：http://dl.138vps.com/linux/aria2_webui.tar.gz" target="_blank" rel="noopener">https://pan.lanzou.com/1131145，再或者：http://dl.138vps.com/linux/aria2_webui.tar.gz</a></span><br></p>
+<p><span style="font-size:16px;line-height:2;">解压后上传到 【/var/www/html/】，并改名为【webui】。同时设置权限：</span><br></p>
+<p><span style="font-size:16px;line-height:2;color:#337FE5;">chmod 755 /var/www/html/webui</span><br></p>
+<p><br></p>
+<p><br></p>
+<p><span style="font-size:16px;line-height:2;">3、<a href="http://IP地址/webui" target="_blank" rel="noopener">http://IP地址/webui</a> 就可访问成功；如果报错，在“设置”–&gt; “服务器设置”中“主机：”后后面填写自己的IP地址就可；</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><span style="font-size:16px;line-height:2;">如果Aria2.conf配置文件中启用了RPC安全认证，需要在WEB客户端设置中填入RPC用户名和密码，否则客户端报错。</span><br></p>
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <span style="font-size:14px;"><span style="color:#E56600;font-size:16px;">也可以使用苏苏更为喜欢的另一个web管理面板</span><span style="font-size:16px;">：</span></span><a href="http://dl.138vps.com/linux/ariang.tar.gz" rel="external nofollow" target="_blank"><span style="color:#4C33E5;font-size:16px;">http://dl.138vps.com/linux/ariang.tar.gz</span></a><br><br></p>
+
+<p><br><br>    <br><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;">苏苏的教程中，难免有谬误的地方，具体的玩法，就自己琢磨吧。</span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;"><br><br><br></span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;"><span style="white-space:normal;font-size:16px;">配合h5ai，实现下载视频后在线播放：</span><span style="white-space:normal;color:#4C33E5;font-size:16px;"><span style="color:#4C33E5;font-family:微软雅黑, 'Arial Narrow', HELVETICA;font-size:16px;line-height:24px;text-indent:28px;white-space:normal;background-color:#FFFFFF;"><a href="http://www.138vps.com/vpsjc/946.html" target="_blank" style="white-space:normal;"><span style="color:#4C33E5;">http://www.138vps.com/vpsjc/946.html</span></a></span></span><br><br><br></span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;"><span style="white-space:normal;color:#4C33E5;font-size:16px;"><br><br><br></span></span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;"><span style="white-space:normal;color:#4C33E5;font-size:16px;"><span style="color:#000000;">据反馈，centos7安装好WebUI后，连接上去会出现“</span><span style="color:#000000;font-family:微软雅黑;font-size:16px;line-height:30px;white-space:normal;background-color:#FFFFFF;">上次连接请求未成功，正在尝试使用另一个配置 糟糕！ 无法连接到 Aria2 RPC 服务器，将在10秒后重试……..</span><span style="color:#000000;"></span><span style="color:#000000;">”的错误，这个时候再运行一遍第二步的第1步代码就好了：</span></span></span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;"><span style="white-space:normal;color:#4C33E5;font-size:16px;"><span style="color:#337FE5;font-family:微软雅黑;font-size:14px;line-height:20px;white-space:normal;background-color:#FFFFFF;">aria2c –enable-rpc –rpc-listen-all=true –rpc-allow-origin-all -c -D</span><span style="color:#337FE5;"></span><br><br><br></span></span><br><br></p>
+
+<p><br><br>    <span style="font-size:16px;line-height:2;"><span style="white-space:normal;color:#4C33E5;font-size:16px;"><br><br><br></span></span><br><br></p>            
+
+<pre><code>&lt;p&gt;&lt;/p&gt;
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+     
+	  <div>
+        
+	  </div>
+     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zs.png" alt="BINGCHENG 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/离线下载/" rel="tag"># 离线下载</a>
+          
+            <a href="/tags/Aria2/" rel="tag"># Aria2</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/31/post1/" rel="next" title="十二月十五">
+                <i class="fa fa-chevron-left"></i> 十二月十五
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/04/post5/" rel="prev" title="媚俗">
+                媚俗 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="BINGCHENG" />
+            
+              <p class="site-author-name" itemprop="name">BINGCHENG</p>
+              <p class="site-description motion-element" itemprop="description">自强不息</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:bingcheng94@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/xxzzdd" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、安装aria2"><span class="nav-number">1.</span> <span class="nav-text">一、安装aria2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、配置aria2"><span class="nav-number">2.</span> <span class="nav-text">二、配置aria2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、安装WEBUI"><span class="nav-number">3.</span> <span class="nav-text">三、安装WEBUI</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BINGCHENG</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '6WA3giEtacfNM9HXW1cDREaf-gzGzoHsz',
+        appKey: 'E7oCfyoHxuYq1dTIDJ1YkonA',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'/mp/identicon/monsterid/wavatar/robohash/retro/retro',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
