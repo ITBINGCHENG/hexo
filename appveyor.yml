@@ -6,7 +6,7 @@ branches:
   - master
 environment:
   access_token:
-    secure: EbUrHilexcQBTUKjItEIzY8uJBOn0o0gRCya+EHMUvOH1wTxeq2iGTQHEwxf2bno
+    secure: Iq623SpqL52bKKTxfBbnTaPedEsL43kYD53hSGW7E/oyVmsEUnQTUlbQgCLuR8NI
     #加密后的access_token
 install:
   - ps: Install-Product node 6.0 #原始环境的node 是4.x的版本，最好升级到最新的版本，防止Hexo的插件无法安装
