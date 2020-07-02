@@ -12,7 +12,7 @@ build_script:
 artifacts:
 	- path: public
 on_success:
-	- git config --global credential.helper store
+        - git config --global credential.helper store
 	- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
 	- git config --global user.email "%GIT_USER_EMAIL%"
 	- git config --global user.name "%GIT_USER_NAME%"
